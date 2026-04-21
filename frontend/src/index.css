@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+/* ========== Google Font ========== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ========== BhejDe Brand Tokens ========== */
+:root {
+  --purple-50: #f3f0ff;
+  --purple-100: #e9e0ff;
+  --purple-200: #d4c1ff;
+  --purple-300: #b794ff;
+  --purple-400: #9a5cff;
+  --purple-500: #7c3aed;
+  --purple-600: #6d28d9;
+  --purple-700: #5b21b6;
+  --purple-800: #4c1d95;
+  --purple-900: #3b0f7a;
+
+  --bg-page: #0c0517;
+  --bg-card: #140a24;
+  --bg-card-elevated: #1a0f2e;
+  --bg-input: #1a0f2e;
+
+  --border-subtle: rgba(124, 58, 237, 0.12);
+  --border-medium: rgba(124, 58, 237, 0.2);
+
+  --gold: #f59e0b;
+  --gold-light: #fbbf24;
+}
+
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-page);
+  color: #e2e0e7;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ========== Scrollbar ========== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-page); }
+::-webkit-scrollbar-thumb { background: var(--purple-800); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--purple-700); }
+
+/* ========== Animations ========== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.93); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.anim-fade-in-up {
+  animation: fadeInUp 0.45s ease-out both;
+}
+
+.anim-scale-in {
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ========== Utility: Glass Card (Purple-tinted) ========== */
+.card-glass {
+  background: linear-gradient(145deg, rgba(20, 10, 36, 0.9), rgba(12, 5, 23, 0.95));
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(124, 58, 237, 0.04) inset;
+}
+
+/* ========== Table Row Hover ========== */
+.row-hover {
+  transition: all 0.2s ease;
+}
+.row-hover:hover {
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.06), rgba(124, 58, 237, 0.02), transparent);
+}
+
+/* ========== Purple glow for active elements ========== */
+.purple-glow {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 60px rgba(124, 58, 237, 0.1);
+}
