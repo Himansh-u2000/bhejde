@@ -2,10 +2,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace backend.Models
 {
-    /// <summary>
-    /// Represents an inventory item in the system.
-    /// Stock status is computed automatically based on quantity.
-    /// </summary>
     public class InventoryItem
     {
         public Guid Id { get; set; }
@@ -13,12 +9,6 @@ namespace backend.Models
         public string SKU { get; set; } = string.Empty;
         public int Quantity { get; set; }
 
-        /// <summary>
-        /// Computed stock status based on quantity:
-        /// Quantity = 0  → "Out of Stock"
-        /// Quantity < 10 → "Low Stock"
-        /// Quantity >= 10 → "In Stock"
-        /// </summary>
         public string StockStatus
         {
             get
@@ -29,11 +19,6 @@ namespace backend.Models
             }
         }
     }
-
-    /// <summary>
-    /// DTO (Data Transfer Object) for creating a new inventory item.
-    /// Contains validation rules to ensure data integrity.
-    /// </summary>
     public class CreateItemDto
     {
         [Required(ErrorMessage = "Name is required")]

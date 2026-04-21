@@ -2,19 +2,12 @@ using backend.Models;
 
 namespace backend.Services
 {
-    /// <summary>
-    /// In-memory service that manages inventory items.
-    /// Registered as a Singleton so data persists for the lifetime of the app.
-    /// (Data resets when the server restarts — this is intentional for a demo app.)
-    /// </summary>
     public class InventoryService
     {
-        // In-memory list acting as our "database"
         private readonly List<InventoryItem> _items;
 
         public InventoryService()
         {
-            // Pre-seed with sample data so the UI isn't empty on first load
             _items = new List<InventoryItem>
             {
                 new InventoryItem
@@ -48,18 +41,11 @@ namespace backend.Services
             };
         }
 
-        /// <summary>
-        /// Returns all inventory items.
-        /// </summary>
         public List<InventoryItem> GetAll()
         {
             return _items;
         }
 
-        /// <summary>
-        /// Creates a new inventory item from the DTO and adds it to the in-memory store.
-        /// Returns the created item with its generated Id and computed StockStatus.
-        /// </summary>
         public InventoryItem Add(CreateItemDto dto)
         {
             var item = new InventoryItem
